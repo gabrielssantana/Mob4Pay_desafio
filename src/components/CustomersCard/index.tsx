@@ -1,7 +1,8 @@
 import React from "react";
-import { Text, TouchableOpacity, TouchableOpacityProps } from "react-native";
+import { Text, TouchableOpacity, TouchableOpacityProps, View } from "react-native";
 import ICustomer from "../../shared/interfaces/ICustomers";
 import styles from "./styles";
+import Icon from "react-native-vector-icons/Feather"
 
 interface CustomersCardProps extends TouchableOpacityProps {
   customer: ICustomer
@@ -24,9 +25,20 @@ const CustomersCard = ({
   }}
   style={styles.container}
   >
-    <Text>{id}</Text>
-    <Text>{nome}</Text>
-    <Text>{estado}</Text>
+    <View
+    style={styles.content}
+    >
+    <Text>Id: {id}</Text>
+    <Text>Nome: {nome}</Text>
+    <Text>Estado: {estado}</Text>
+    </View>
+
+  <Icon
+  name="arrow-right"
+  size={24}
+  color="#000"
+  style={styles.icon}
+  />
 
   </TouchableOpacity>
   </>

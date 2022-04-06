@@ -15,13 +15,13 @@ const Home = ({
   }
 }: HomeProps): JSX.Element => {
   const isFocused = useIsFocused()
-  const [clients, setClients] = useState<ICustomer[]>([])
+  const [customers, setCustomers] = useState<ICustomer[]>([])
 
-  const getClients = useCallback(async () => {
+  const getCustomers = useCallback(async () => {
     try {
       const url = "obterClientes"
       const {data: {clientes}} = await api.get(url)
-      setClients(clientes)
+      setCustomers(clientes)
     }
     catch (error) {
       console.log(error)
@@ -29,7 +29,7 @@ const Home = ({
   }, [isFocused])
 
   useEffect(() => {
-    isFocused && getClients()
+    isFocused && getCustomers()
   }, [isFocused])
 
   return (
@@ -37,7 +37,7 @@ const Home = ({
       showsVerticalScrollIndicator={false}
       contentContainerStyle={styles.scrollContainer}
     >
-      {clients.map(customer => (
+      {customers.map(customer => (
         <CustomersCard
         key={customer.id}
         {...{

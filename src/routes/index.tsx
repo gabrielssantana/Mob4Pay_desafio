@@ -10,16 +10,19 @@ const {
 const Routes = () => (
       <Navigator
       screenOptions={{
-        animation: 'slide_from_right'
+        animation: 'slide_from_right',
+        headerShown: false,
+        contentStyle: {
+          backgroundColor: '#FFF'
+        }
       }}
       >
-      {AppScreens.map(({name, component, options}) => (
+      {AppScreens.map(({name, component}) => (
         <Screen
         key={name}
         {...{
           name,
-          component,
-          options
+          component
         }} />
       ))}
       </Navigator>

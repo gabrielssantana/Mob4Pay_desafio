@@ -13,11 +13,16 @@ const CustomerFields = ({
     ]
 }: CustomerFieldsProps): JSX.Element => (
   <View
+  style={styles.container}
   >
-    <Text>
+    <Text
+    style={styles.title}
+    >
       {key}
     </Text>
-    <Text>
+    <Text
+    style={styles.content}
+    >
       {value}
     </Text>
   </View>
